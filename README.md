@@ -1,6 +1,12 @@
 # fundamentals-of-security
 
-You are given a plaintext and a ciphertext, and you know that aes-128-cbc is used to generate the
-ciphertext from the plaintext, and you also know that the numbers in the IV are all zeros (not the ASCII
-character ‘0’). The key used to encrypt is an English word shorter than 16 characters; the word that can be found from a typical English dictionary. Since the word has less than 16 characters (i.e. 128 bits), space characters (hexadecimal value 0x20) are appended
-to the end of the word to form a key of 128 bits. This programs loops over all the words in the provided dictionary file and displays the correct key.
+The program's objective is to hit a "target" hash value by generating the hash for different strings
+and matching it with the target hash value.
+
+The approach to generate strings and match them against a target is implemented as follows:
+1. Start with string length 1
+2. Generate all possible combinations of strings for current length using the character set,
+generate its hash and compare it with the target hash.
+3. If a match is found, the execution stops and reports the number of iterations used.
+4. If no match is found in all possible strings of current length, increment length by ‘1’ and
+go to step (2)
