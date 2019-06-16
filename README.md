@@ -1,12 +1,14 @@
 # fundamentals-of-security
 
-The program's objective is to hit a "target" hash value by generating the hash for different strings
-and matching it with the target hash value(md5).
+In the case of collision free property, there is no restriction on target hash. The approach followed
+in the collision.c program to break this property is as follows:
 
-The approach to generate strings and match them against a target is implemented as follows:
-1. Start with string length 1
-2. Generate all possible combinations of strings for current length using the character set,
-generate its hash and compare it with the target hash.
-3. If a match is found, the execution stops and reports the number of iterations used.
-4. If no match is found in all possible strings of current length, increment length by ‘1’ and
-go to step (2)
+1. Allocated an array for saving hash values
+2. Generate initial message (call it M)
+3. Find M’s hash
+4. Generate random string and find its hash
+5. Compare hash from (4) to M’s hash, if a match is found then exit and report the number
+of iterations used.
+6. Compare hash from (4) to each hash value in array, if any match is found then exit and
+report the number of iterations used.
+7. If no match is found, save the hash from (4) into the array and go to step (4)
