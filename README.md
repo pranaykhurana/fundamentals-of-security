@@ -1,7 +1,7 @@
 # fundamentals-of-security
 
 The program's objective is to hit a "target" hash value by generating the hash for different strings
-and matching it with the target hash value.
+and matching it with the target hash value(md5).
 
 The approach to generate strings and match them against a target is implemented as follows:
 1. Start with string length 1
